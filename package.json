@@ -1,0 +1,38 @@
+{
+  "name": "@woubuc/data-picker",
+  "description": "A simple type-checking data validator and extractor",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/DataPicker.js",
+  "types": "dist/DataPicker.d.ts",
+  "author": "Wouter Buckens <wou.buc@gmail.com>",
+  "homepage": "https://github.com/woubuc/data-picker/blob/master/README.md",
+  "repository": "github:woubuc/data-picker",
+  "bugs": "https://github.com/woubuc/data-picker/issues",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "typescript": "^3.9.7"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "data",
+    "pick",
+    "picker",
+    "datapicker",
+    "object",
+    "validator",
+    "validation",
+    "extractor",
+    "input",
+    "unknown",
+    "types",
+    "typed",
+    "typescript"
+  ]
+}
