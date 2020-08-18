@@ -11,5 +11,8 @@ import DataPicker from 'data-picker';
 
 let env = new DataPicker('process.env', process.env);
 
-env.getString('NODE_ENV');
+// Returns the env 'NODE_ENV', or 'development' if the env doesn't exist
+let node_env = env.getString('NODE_ENV', 'development');
+
+// node_env is now guaranteed to contain a string
 ```
