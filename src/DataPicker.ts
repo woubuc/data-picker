@@ -201,6 +201,13 @@ export default class DataPicker {
 
 		return value;
 	}
+
+	/**
+	 * Returns the inner data object of the datapicker
+	 */
+	public raw() : Record<string, any> {
+		return this.data;
+	}
 }
 
 module.exports = DataPicker;
