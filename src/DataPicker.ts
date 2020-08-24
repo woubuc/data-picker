@@ -5,6 +5,15 @@ import { inspect } from 'util';
  */
 export default class DataPicker {
 
+	/**
+	 * Creates a datapicker for the current environment variables
+	 *
+	 * Shorthand for `new DataPicker('process.env', process.env)`
+	 */
+	public static env() : DataPicker {
+		return new DataPicker('process.env', process.env);
+	}
+
 	private readonly name : string;
 	private readonly data : Record<string, unknown>;
 
