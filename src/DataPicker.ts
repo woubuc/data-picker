@@ -35,6 +35,15 @@ export default class DataPicker {
 	}
 
 	/**
+	 * Checks if the given key exists on the object
+	 *
+	 * @param key - The property key to check
+	 */
+	public has(key : string) : boolean {
+		return Object.prototype.hasOwnProperty.call(this.data, key);
+	}
+
+	/**
 	 * Gets the value that corresponds to the given key
 	 *
 	 * @param key      - The property key to get
@@ -43,7 +52,7 @@ export default class DataPicker {
 	 * @throws {ReferenceError} if the key does not exist
 	 */
 	public get(key : string, fallback ?: unknown) : unknown {
-		if (Object.prototype.hasOwnProperty.call(this.data, key)) {
+		if (this.has(key)) {
 			return this.data[key];
 		}
 
@@ -74,6 +83,21 @@ export default class DataPicker {
 	}
 
 	/**
+	 * Get the string value that corresponds to the given key, or undefined if the key is not set
+	 *
+	 * @param key - The property key to get
+	 *
+	 * @throws {TypeError} if the value is not a string
+	 */
+	public getStringOptional(key : string) : string | undefined {
+		if (!this.has(key)) {
+			return undefined;
+		}
+
+		return this.getString(key);
+	}
+
+	/**
 	 * Get the numeric value that corresponds to the given key
 	 *
 	 * @param key      - The property key to get
@@ -100,6 +124,20 @@ export default class DataPicker {
 		return value;
 	}
 
+	/**
+	 * Get the numeric value that corresponds to the given key, or undefined if the key is not set
+	 *
+	 * @param key - The property key to get
+	 *
+	 * @throws {TypeError} if the value is not a finite number or could not be parsed to a number
+	 */
+	public getNumberOptional(key : string) : number | undefined {
+		if (!this.has(key)) {
+			return undefined;
+		}
+
+		return this.getNumber(key);
+	}
 
 	/**
 	 * Get the Date value that corresponds to the given key
@@ -130,6 +168,21 @@ export default class DataPicker {
 		}
 
 		throw new TypeError(`Invalid value for ${ key } in ${ this.name } (expected date, got: ${ inspect(value) })`);
+	}
+
+	/**
+	 * Get the Date value that corresponds to the given key, or undefined if the key is not set
+	 *
+	 * @param key - The property key to get
+	 *
+	 * @throws {TypeError} if the value is not a date or could not be parsed to a date
+	 */
+	public getDateOptional(key : string) : Date | undefined {
+		if (!this.has(key)) {
+			return undefined;
+		}
+
+		return this.getDate(key);
 	}
 
 	/**
