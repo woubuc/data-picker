@@ -7,7 +7,7 @@ of the correct type.
 
 ### Usage Example
 ```typescript
-import DataPicker from 'data-picker';
+import DataPicker from '@woubuc/data-picker';
 
 let env = new DataPicker('process.env', process.env);
 
