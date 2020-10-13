@@ -140,6 +140,39 @@ export default class DataPicker {
 	}
 
 	/**
+	 * Get the boolean value that corresponds to the given key
+	 *
+	 * Non-boolean values will be coerced to a boolean.
+	 *
+	 * @param key      - The property key to get
+	 * @param fallback - If set, returns this value instead of throwing if the key doesn't exist
+	 *
+	 * @throws {ReferenceError} if the key does not exist
+	 */
+	public getBoolean(key : string, fallback ?: boolean) : boolean {
+		let value = this.get(key, fallback);
+
+		if (typeof value === 'boolean') {
+			return value;
+		}
+
+		return !!value;
+	}
+
+	/**
+	 * Get the boolean value that corresponds to the given key, or undefined if the key is not set
+	 *
+	 * @param key - The property key to get
+	 */
+	public getBooleanOptional(key : string) : boolean | undefined {
+		if (!this.has(key)) {
+			return undefined;
+		}
+
+		return this.getBoolean(key);
+	}
+
+	/**
 	 * Get the Date value that corresponds to the given key
 	 *
 	 * @param key      - The property key to get
