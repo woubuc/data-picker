@@ -40,7 +40,15 @@ export default class DataPicker {
 	 * @param key - The property key to check
 	 */
 	public has(key : string) : boolean {
-		return Object.prototype.hasOwnProperty.call(this.data, key);
+		if (!Object.prototype.hasOwnProperty.call(this.data, key)) {
+			return false;
+		}
+
+		if (this.data[key] === null || this.data[key] === undefined) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
