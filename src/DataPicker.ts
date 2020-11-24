@@ -287,6 +287,22 @@ export default class DataPicker {
 	}
 
 	/**
+	 * Gets the object that corresponds to the given key, or undefined if the key doesn't exist
+	 *
+	 * @param key      - The property key to get
+	 *
+	 * @throws {ReferenceError} if the key does not exist
+	 * @throws {TypeError} if the value is not an object
+	 */
+	public getObjectOptional(key : string) : DataPicker | undefined {
+		if (!this.has(key)) {
+			return undefined;
+		}
+
+		return this.getObject(key);
+	}
+
+	/**
 	 * Gets the object that corresponds to the given key
 	 *
 	 * @param key      - The property key to get
