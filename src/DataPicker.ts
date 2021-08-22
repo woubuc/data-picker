@@ -118,10 +118,14 @@ export default class DataPicker {
 		let value = this.get(key, fallback);
 
 		if (typeof value === 'string') {
-			if (value.includes('.')) {
-				value = Number.parseFloat(value);
+			let str = value
+				.replace(/_/, '')
+				.replace(',', '.');
+
+			if (str.includes('.')) {
+				value = Number.parseFloat(str);
 			} else {
-				value = Number.parseInt(value);
+				value = Number.parseInt(str);
 			}
 		}
 
