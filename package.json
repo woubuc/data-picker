@@ -1,7 +1,7 @@
 {
   "name": "@woubuc/data-picker",
   "description": "A simple type-checking data validator and extractor",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "main": "dist/DataPicker.js",
   "types": "dist/DataPicker.d.ts",
