@@ -119,7 +119,7 @@ export default class DataPicker {
 
 		if (typeof value === 'string') {
 			let str = value
-				.replace(/_/, '')
+				.replace(/_/g, '')
 				.replace(',', '.');
 
 			if (str.includes('.')) {
